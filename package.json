@@ -1,9 +1,10 @@
 {
   "name": "create-zxp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Creates Adobe ZXP Packages.",
   "main": "lib/index.js",
   "license": "MIT",
+  "repository": "https://github.com/fusepilot/create-zxp",
   "bin": {
     "create-zxp": "./lib/bin/create-zxp.js"
   },
