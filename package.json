@@ -1,6 +1,6 @@
 {
   "name": "create-zxp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Creates Adobe ZXP Packages.",
   "main": "lib/index.js",
   "license": "MIT",
@@ -10,7 +10,8 @@
   },
   "files": [
     "src",
-    "lib"
+    "lib",
+    "lib/bin"
   ],
   "scripts": {
     "prepublish": "yarn run build",
