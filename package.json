@@ -1,0 +1,29 @@
+{
+  "name": "create-zxp",
+  "version": "0.0.1",
+  "description": "Creates Adobe ZXP Packages.",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "bin": {
+    "create-zxp": "./lib/bin/create-zxp.js"
+  },
+  "scripts": {
+    "prepublish": "yarn run build",
+    "start": "tsc -w",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "fs-extra": "^5.0.0",
+    "lodash": "^4.17.5",
+    "minimist": "^1.2.0",
+    "zxp-sign-cmd": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^5.0.0",
+    "@types/lodash": "^4.14.104",
+    "@types/minimist": "^1.2.0",
+    "@types/node": "^8.0.31",
+    "chalk": "^2.3.1",
+    "typescript": "^2.6.2"
+  }
+}

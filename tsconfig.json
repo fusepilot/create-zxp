@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "outDir": "./lib",
+    "removeComments": true,
+    "strict": true,
+    "declaration": true,
+    "types": ["node"]
+    // "typeRoots": ["src"]
+  },
+  "include": ["./src/**/*"]
+}
