@@ -2,7 +2,7 @@
 
 ## What
 
-Creates Adobe ZXP Packages.
+Creates Adobe ZXP Packages with zero configuration.
 
 ## Install
 
@@ -27,16 +27,16 @@ cep-packager [input] [options]
 
 Options:
 
-  --name <name>                   name of the zxp. defaults to package.json name
-  --version <version>             version of the zxp. defaults to package.json version
+  --name <name>                   name of the zxp. default: package.json name or process.env.ZXP_NAME
+  --version <version>             version of the zxp. default: package.json version or process.env.ZXP_VERSION
   --out-dir <out-dir>             output directory. default: archive
-  --cert-file <file>              certificate file. will self-sign if not provided
-  --cert-password <password>      certificate password. default: password
-  --cert-country <country>        certificate country. default: US
-  --cert-province <province>      certificate province. default: CA
-  --cert-org <org>                certificate org. default: "My Company"
-  --cert-name <name>              certificate name. default: "My Company"
-  --cert-timestamp <timestamp>    certificate timestamp
+  --cert-file <file>              certificate file. default: self-sign or process.env.ZXP_CERT
+  --cert-password <password>      certificate password. default: password or process.env.ZXP_CERT_PASSWORD
+  --cert-country <country>        certificate country. default: US or process.env.ZXP_CERT_COUNTRY
+  --cert-province <province>      certificate province. default: CA or process.env.ZXP_CERT_PROVINCE
+  --cert-org <org>                certificate org. default: "My Company" or process.env.ZXP_CERT_ORG
+  --cert-name <name>              certificate name. default: "My Company" or process.env.ZXP_CERT_NAME
+  --cert-timestamp <timestamp>    certificate timestamp. default: process.env.ZXP_CERT_TIMESTAMP
   --silent                        silence output
 ```
 
