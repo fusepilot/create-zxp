@@ -1,6 +1,6 @@
 {
   "name": "create-zxp",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Creates Adobe ZXP Packages.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -28,6 +28,7 @@
     "zxp-sign-cmd": "^0.2.0"
   },
   "devDependencies": {
+    "@types/extract-zip": "^1.6.2",
     "@types/fs-extra": "^5.0.0",
     "@types/lodash": "^4.14.104",
     "@types/minimist": "^1.2.0",
