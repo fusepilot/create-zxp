@@ -46,6 +46,7 @@ export async function createZXPFromConfig(config: IConfig) {
   if (config.extractDirectory && config.extractDirectory != '') {
     const extractPath = path.join(config.extractDirectory, outputName)
 
+    // @ts-ignore
     await extract(outputFile, {
       dir: extractPath,
     })
