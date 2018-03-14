@@ -32,6 +32,7 @@ function help() {
     --cert-org <org>                certificate org. default: "My Company"
     --cert-name <name>              certificate name. default: "My Company"
     --cert-timestamp <timestamp>    certificate timestamp
+    --extract <dir>                 extract zxp to directory
     --silent                        silence output
   `)
 }
@@ -69,6 +70,7 @@ let config: IConfig = defaultsDeep(
     certName: argv['cert-name'],
     certTimestamp: argv['cert-timestamp'],
     silent: argv['silent'],
+    extractDirectory: argv['extract'],
   },
   {
     name: projectPackage.name,
@@ -84,6 +86,7 @@ let config: IConfig = defaultsDeep(
     certOrg: process.env.ZXP_CERT_ORG,
     certName: process.env.ZXP_CERT_NAME,
     certTimestamp: process.env.ZXP_CERT_TIMESTAMP,
+    extractDirectory: process.env.ZXP_EXTRACT,
   },
   {
     outputDirectory: 'archive',
@@ -93,5 +96,7 @@ let config: IConfig = defaultsDeep(
 
 config.inputDirectory = path.resolve(config.inputDirectory)
 config.outputDirectory = path.resolve(config.outputDirectory)
+if (config.extractDirectory)
+  config.extractDirectory = path.resolve(config.extractDirectory)
 
 createZXPFromConfig(config).catch(e => console.error(chalk.red(e.message)))

@@ -14,4 +14,5 @@ export interface IConfig {
   certName: string
   certTimestamp: string
   silent: boolean
+  extractDirectory: string
 }

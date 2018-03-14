@@ -5,6 +5,9 @@ import { promisify } from 'util'
 import { execSync } from 'child_process'
 import * as fs from 'fs-extra'
 import { IConfig } from './index'
+import * as extractSync from 'extract-zip'
+
+const extract = promisify(extractSync)
 
 const { sign, selfSignedCert } = require('zxp-sign-cmd')
 const selfSignedCertPromise = promisify(selfSignedCert)
@@ -18,7 +21,8 @@ export async function createZXPFromConfig(config: IConfig) {
   const { name, version } = await fs.readJSON(packagePath)
   const tempDir = path.join(os.tmpdir(), `${name}-${version}`)
 
-  const outputFile = path.join(config.outputDirectory, `${name}-${version}.zxp`)
+  const outputName = `${name}-${version}`
+  const outputFile = path.join(config.outputDirectory, `${outputName}.zxp`)
 
   await fs.remove(tempDir)
   await fs.ensureDir(tempDir)
@@ -38,6 +42,16 @@ export async function createZXPFromConfig(config: IConfig) {
     certTimestamp: config.certTimestamp,
     silent: config.silent,
   })
+
+  if (config.extractDirectory && config.extractDirectory != '') {
+    const extractPath = path.join(config.extractDirectory, outputName)
+
+    await extract(outputFile, {
+      dir: extractPath,
+    })
+
+    if (!config.silent) console.log(chalk.gray(`Extracted to ${extractPath}`))
+  }
 }
 
 export async function createZXP({
